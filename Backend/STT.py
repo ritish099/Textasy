@@ -1,6 +1,12 @@
 import speech_recognition as sr
+import urllib.request
+import numpy as np
+import requests
  
-def speech_to_text(audio):
+def speech_to_text(url):
+    urllib.request.urlretrieve(url, 'temp.wav')
+    audio = open('temp.wav', 'rb')
+      
     r = sr.Recognizer()
 
     t = sr.AudioFile(audio)
@@ -12,4 +18,5 @@ def speech_to_text(audio):
     return(text)
 
 if __name__ == '__main__':
-    print(speech_to_text('audio.wav'))
+    url = 'https://www.signalogic.com/melp/EngSamples/Orig/male.wav'
+    print(speech_to_text(url))

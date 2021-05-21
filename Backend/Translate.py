@@ -2,8 +2,8 @@ from Extract import extract_from_image
 
 import translators as ts  
   
-def translate_from_image(imname, frm, to):
-    text = extract_from_image(imname)
+def translate_from_image(image_url, frm, to):
+    text = extract_from_image(image_url)
     print(text)
     res = translate_from_text(text, frm, to)
     return res
