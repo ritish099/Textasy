@@ -5,18 +5,6 @@ from flask import Flask, render_template, request
   
 app = Flask(__name__)
   
-# from website
-"""@app.route("/")
-def index():
-    #global countries
-    #countries = getCountries()
-    return render_template("base.html")"""
-
-# from website
-"""@app.route("/", methods=["POST", "GET"])
-def my_form_post():
-    file = request.form["filetoextract"]
-    return str(file)"""
  
 #API_translate_from_text
 
@@ -30,6 +18,8 @@ def api_translate_from_text():
       
     return translated_text  
 
+#API_extract
+
 @app.route("/extract")
 def api_extract():
     image_url = request.args.get('image')
@@ -39,6 +29,8 @@ def api_extract():
       
     return extracted_text 
 
+#API_translate_from_image
+  
 @app.route("/translate_from_image")
 def api_translate_from_image():
     frm_lang = request.args.get('from')
@@ -49,6 +41,8 @@ def api_translate_from_image():
       
     return translated_text  
 
+#API_speech_to_text
+  
 @app.route("/STT")
 def api_STT():
     audio = request.args.get('audio') 
